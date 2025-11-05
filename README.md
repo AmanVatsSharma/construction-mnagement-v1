@@ -199,6 +199,33 @@ See the `docs/` directory for detailed documentation:
 - `docs/api/` - API endpoint documentation
 - `docs/architecture/` - Architecture diagrams and explanations
 - `docs/modules/` - Module-specific documentation
+- `docs/deployment/` - Deployment guides (including [Vercel Deployment Guide](docs/deployment/vercel-deployment.md))
+
+## Deployment
+
+### Frontend Deployment (Vercel)
+
+The frontend Next.js application can be deployed to Vercel. See the [Vercel Deployment Guide](docs/deployment/vercel-deployment.md) for detailed instructions.
+
+**Quick Start:**
+1. Connect your GitHub repository to Vercel
+2. Configure build settings:
+   - Build Command: `npx nx build app`
+   - Output Directory: `dist/apps/app`
+   - Framework: Next.js
+3. Add environment variables (see deployment guide)
+4. Deploy!
+
+### Backend Deployment
+
+The backend NestJS API can be deployed to platforms like:
+- Railway
+- Render
+- AWS Elastic Beanstalk
+- Heroku
+- DigitalOcean App Platform
+
+See backend-specific documentation for deployment instructions.
 
 ## License
 

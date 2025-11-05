@@ -1,0 +1,33 @@
+# Backend API (not needed for frontend deployment)
+apps/api/
+**/api/
+
+# Documentation
+docs/
+
+# Test files
+**/*.spec.ts
+**/*.test.ts
+**/*.spec.tsx
+**/*.test.tsx
+**/__tests__/
+
+# Nx cache
+.nx/
+
+# Build artifacts (keep only what's needed)
+dist/apps/api/
+
+# Development files
+.env.local
+.env.development.local
+.env.test.local
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
