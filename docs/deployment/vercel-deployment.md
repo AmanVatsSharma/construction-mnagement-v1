@@ -72,7 +72,7 @@ The project includes a `vercel.json` file in the root directory with the followi
 ```json
 {
   "version": 2,
-  "buildCommand": "npx nx build app",
+  "buildCommand": "npx nx build app && cp -r apps/app/.next dist/apps/app/ 2>/dev/null || true",
   "outputDirectory": "dist/apps/app/.next",
   "installCommand": "npm install --legacy-peer-deps",
   "framework": "nextjs"
@@ -153,10 +153,12 @@ These are only needed for backend deployment (not in Vercel):
 **Problem**: Error: "The file routes-manifest.json couldn't be found"
 
 **Solution**:
-1. Ensure `Output Directory` in Vercel dashboard is set to `dist/apps/app/.next`
-2. In Vercel dashboard → Settings → General → Root Directory: Leave as `/` (don't change to `apps/app`)
-3. Verify the build completes successfully and check build logs for `.next` folder creation
-4. If issue persists, try setting `Output Directory` to `dist/apps/app` in Vercel dashboard (not vercel.json) and let Vercel auto-detect
+1. Ensure `Output Directory` in `vercel.json` is set to `dist/apps/app/.next` (points directly to the `.next` folder)
+2. Verify `outputDirectory` in `vercel.json` matches the actual location of `routes-manifest.json`
+3. In Vercel dashboard → Settings → General → Root Directory: Leave as `/` (don't change to `apps/app`)
+4. Verify the build completes successfully and check build logs for `.next` folder creation
+5. Ensure the build command includes the copy step: `npx nx build app && cp -r apps/app/.next dist/apps/app/ 2>/dev/null || true`
+6. **Note**: The `outputDirectory` must point to the `.next` folder (not the parent directory) because Vercel looks for `routes-manifest.json` directly in the outputDirectory path
 
 ### Environment Variables Not Working
 
