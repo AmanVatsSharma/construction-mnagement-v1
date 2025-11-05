@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   generator: "v0.1",
 }
 
+// Force dynamic rendering to avoid SSR issues with browser APIs like 'location'
+export const dynamic = 'force-dynamic'
+
 export default function RootLayout({
   children,
 }: Readonly<{

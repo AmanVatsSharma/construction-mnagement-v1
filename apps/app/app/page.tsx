@@ -6,6 +6,9 @@ import { useEffect } from "react"
 import { DashboardLayout } from "@/components/dashboard/layout"
 import { Dashboard } from "@/components/dashboard/pages/dashboard"
 
+// Force dynamic rendering to avoid SSR issues
+export const dynamic = 'force-dynamic'
+
 export default function Home() {
   const router = useRouter()
   const { isAuthenticated } = useAuth()
