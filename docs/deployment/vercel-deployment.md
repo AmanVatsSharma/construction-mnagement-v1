@@ -144,9 +144,19 @@ These are only needed for backend deployment (not in Vercel):
 **Problem**: Vercel cannot find the build output.
 
 **Solution**:
-1. Verify `Output Directory` is set to `dist/apps/app`
+1. Verify `Output Directory` is set to `dist/apps/app/.next`
 2. Check that the build command completes successfully
 3. Ensure `apps/app/project.json` has correct `outputPath` setting
+
+### Routes Manifest Not Found
+
+**Problem**: Error: "The file routes-manifest.json couldn't be found"
+
+**Solution**:
+1. Ensure `Output Directory` in Vercel dashboard is set to `dist/apps/app/.next`
+2. In Vercel dashboard → Settings → General → Root Directory: Leave as `/` (don't change to `apps/app`)
+3. Verify the build completes successfully and check build logs for `.next` folder creation
+4. If issue persists, try setting `Output Directory` to `dist/apps/app` in Vercel dashboard (not vercel.json) and let Vercel auto-detect
 
 ### Environment Variables Not Working
 
